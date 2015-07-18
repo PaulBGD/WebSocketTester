@@ -9,7 +9,7 @@ npm install -g websocket-tester
 ## Usage
 
 ````
-websocket
+websocket-tester
 ````
 
 ## License

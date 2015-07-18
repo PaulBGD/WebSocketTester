@@ -1,13 +1,17 @@
 {
   "name": "websocket-tester",
   "preferGlobal": true,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Quickly and easily test your websockets",
   "main": "index.js",
   "author": {
     "name": "Paul Sauve",
     "email": "paul@burngames.net",
     "url": "https://paulb.gd"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PaulBGD/WebSocketTester.git"
   },
   "keywords": [
     "socket",
