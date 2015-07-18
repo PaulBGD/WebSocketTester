@@ -20,6 +20,9 @@
     "web",
     "websocket"
   ],
+  "bin": {
+    "websocket-tester": "./bin/websocket-tester"
+  },
   "author": "Paul Sauve <paul@burngames.net> (http://paulb.gd/)",
   "license": "MIT",
   "dependencies": {
