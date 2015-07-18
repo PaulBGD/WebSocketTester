@@ -1,0 +1,24 @@
+{
+  "name": "websocket-tester",
+  "preferGlobal": true,
+  "version": "1.0.0",
+  "description": "Quickly and easily test your websockets",
+  "main": "index.js",
+  "author": {
+    "name": "Paul Sauve",
+    "email": "paul@burngames.net",
+    "url": "https://paulb.gd"
+  },
+  "keywords": [
+    "socket",
+    "test",
+    "tester",
+    "web",
+    "websocket"
+  ],
+  "author": "Paul Sauve <paul@burngames.net> (http://paulb.gd/)",
+  "license": "MIT",
+  "dependencies": {
+    "websocket": "^1.0.19"
+  }
+}

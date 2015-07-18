@@ -1,0 +1,57 @@
+var websocket = require('websocket').client;
+var readline = require('readline');
+
+var rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.question('Enter URI of the WebSocket you wish to connect to\n> ', function (answer) {
+    var client = new websocket();
+
+    client.on('connectFailed', function (error) {
+        console.error('Failed to connect', error);
+        process.exit(1);
+    });
+
+    client.on('connect', function (connection) {
+        console.log('Connected to WebSocket');
+
+        connection.on('message', function (message) {
+            if (message.type === 'utf8') {
+                console.log(message.utf8Data);
+            } else {
+                console.log('Invalid message received with type ', message.type);
+            }
+        });
+
+        connection.on('close', function () {
+            rl.close();
+            setTimeout(function() {
+                client.connect(answer, 'echo-protocol');
+            }, 1000);
+        });
+
+        function question() {
+            rl.question('> ', function (answer) {
+                connection.sendUTF(answer);
+                setTimeout(question, 100);
+            });
+        }
+
+        rl = readline.createInterface({
+            input: process.stdin,
+            output: process.stdout
+        });
+
+        question();
+    });
+
+    client.on('close', function() {
+        console.log('WebSocket closed');
+        process.exit(0);
+    });
+
+    rl.close();
+    client.connect(answer, 'echo-protocol');
+});
